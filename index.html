@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Motors | Premium Vehicle Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #d4af37;
+            --light: #f8f9fa;
+            --dark: #121212;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: #c19b2a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Vehicle Display Section */
+        .vehicles-section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Background Selector */
+        .background-selector {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .selector-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .background-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .bg-option {
+            padding: 8px 15px;
+            background-color: var(--light);
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .bg-option:hover, .bg-option.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        /* Vehicle Grid */
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .vehicle-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .vehicle-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .vehicle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .vehicle-card:hover .vehicle-image img {
+            transform: scale(1.05);
+        }
+
+        .vehicle-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .vehicle-info {
+            padding: 20px;
+        }
+
+        .vehicle-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .vehicle-price {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .vehicle-specs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .vehicle-spec {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .vehicle-description {
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .vehicle-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            flex: 1;
+            text-align: center;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Vehicle Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 50px auto;
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 992px) {
+            .modal-body {
+                flex-direction: row;
+            }
+        }
+
+        .modal-images {
+            flex: 1;
+            position: relative;
+        }
+
+        .main-image {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-thumbnails {
+            display: flex;
+            padding: 15px;
+            gap: 10px;
+            overflow-x: auto;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 60px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .thumbnail:hover, .thumbnail.active {
+            opacity: 1;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-details {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-price {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .modal-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .spec-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+        }
+
+        .spec-value {
+            font-weight: 600;
+        }
+
+        .spec-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .modal-description {
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .vehicle-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .background-selector {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-car-side fa-2x" style="color: var(--secondary);"></i>
+                    <h1>ELITE<span>MOTORS</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Inventory</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>EXCEPTIONAL VEHICLES FOR DISCRIMINATING DRIVERS</h2>
+                <p>Discover our curated collection of premium automobiles, each meticulously selected for performance, luxury, and style.</p>
+                <a href="#inventory" class="btn">View Inventory</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicles Section -->
+    <section class="vehicles-section" id="inventory">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Premium Collection</h2>
+                <p>Explore our handpicked selection of luxury and performance vehicles</p>
+            </div>
+
+            <!-- Background Selector -->
+            <div class="background-selector">
+                <div class="selector-title">Display Background:</div>
+                <div class="background-options">
+                    <div class="bg-option active" data-bg="default">Default</div>
+                    <div class="bg-option" data-bg="urban">Urban</div>
+                    <div class="bg-option" data-bg="nature">Nature</div>
+                    <div class="bg-option" data-bg="seaside">Seaside</div>
+                    <div class="bg-option" data-bg="mountains">Mountains</div>
+                </div>
+            </div>
+
+            <!-- Vehicle Grid -->
+            <div class="vehicle-grid">
+                <!-- Vehicle 1 -->
+                <div class="vehicle-card">
+                    <div class="vehicle-image">
+                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Porsche 911">
+                        <div class="vehicle-badge">New</div>
+                    </div>
+                    <div class="vehicle-info">
+                        <div class="vehicle-title">
+                            <h3>Porsche 911 Turbo S</h3>
+                            <div class="vehicle-price">$205,000</div>
+                        </div>
+                        <div class="vehicle-specs">
+                            <div class="vehicle-spec">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>3.0s 0-60</span>
+                            </div>
+                            <div class="vehicle-spec">
+                                <i class="fas fa-car"></i>
+                                <span>Coupe</span>
+                            </div>
+                            <div class="vehicle-spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>Hybrid</span>
+                            </div>
+                        </div>
+                        <p class="vehicle-description">The pinnacle of sports car performance with breathtaking acceleration and precision handling.</p>
+                        <div class="vehicle-actions">
+                            <button class="btn btn-outline view-details" data-vehicle="1">View Details</button>
+                            <button class="btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle 2 -->
+                <div class="vehicle-card">
+                    <div class="vehicle-image">
+                        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2025&q=80" alt="Range Rover">
+                        <div class="vehicle-badge">Luxury</div>
+                    </div>
+                    <div class="vehicle-info">
+                        <div class="vehicle-title">
+                            <h3>Range Rover Autobiography</h3>
+                            <div class="vehicle-price">$145,000</div>
+                        </div>
+                        <div class="vehicle-specs">
+                            <div class="vehicle-spec">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>4.5s 0-60</span>
+                            </div>
+                            <div class="vehicle-spec">
+                                <i class="fas fa-car"></i>
+                                <span>SUV</span>
+                            </div>
+                            <div class="vehicle-spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>Petrol</span>
+                            </div>
+                        </div>
+                        <p class="vehicle-description">Unmatched luxury and capability in the most refined SUV on the market.</p>
+                        <div class="vehicle-actions">
+                            <button class="btn btn-outline view-details" data-vehicle="2">View Details</button>
+                            <button class="btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle 3 -->
+                <div class="vehicle-card">
+                    <div class="vehicle-image">
+                        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Audi R8">
+                        <div class="vehicle-badge">Performance</div>
+                    </div>
+                    <div class="vehicle-info">
+                        <div class="vehicle-title">
+                            <h3>Audi R8 V10 Plus</h3>
+                            <div class="vehicle-price">$189,000</div>
+                        </div>
+                        <div class="vehicle-specs">
+                            <div class="vehicle-spec">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>3.2s 0-60</span>
+                            </div>
+                            <div class="vehicle-spec">
+                                <i class="fas fa-car"></i>
+                                <span>Coupe</span>
+                            </div>
+                            <div class="vehicle-spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>Petrol</span>
+                            </div>
+                        </div>
+                        <p class="vehicle-description">A supercar with everyday usability, featuring a screaming V10 engine and quattro all-wheel drive.</p>
+                        <div class="vehicle-actions">
+                            <button class="btn btn-outline view-details" data-vehicle="3">View Details</button>
+                            <button class="btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicle Modal -->
+    <div class="modal" id="vehicleModal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-body">
+                <div class="modal-images">
+                    <div class="main-image">
+                        <img id="modalMainImage" src="" alt="Vehicle">
+                    </div>
+                    <div class="image-thumbnails" id="modalThumbnails">
+                        <!-- Thumbnails will be inserted here by JavaScript -->
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title" id="modalTitle">Vehicle Title</h2>
+                    <div class="modal-price" id="modalPrice">$0</div>
+                    
+                    <div class="modal-specs" id="modalSpecs">
+                        <!-- Specs will be inserted here by JavaScript -->
+                    </div>
+                    
+                    <p class="modal-description" id="modalDescription">Vehicle description will appear here.</p>
+                    
+                    <div class="modal-actions">
+                        <button class="btn btn-outline">Schedule Test Drive</button>
+                        <button class="btn">Make an Offer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Elite Motors</h3>
+                    <p>Your premier destination for luxury and performance vehicles. We offer an exceptional car buying experience for discerning drivers.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Inventory</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Financing</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Luxury Avenue, Beverly Hills, CA</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@elitemotors.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Business Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Friday: 9am - 7pm</li>
+                        <li>Saturday: 10am - 6pm</li>
+                        <li>Sunday: 12pm - 5pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Elite Motors. All rights reserved. | Designed with passion for automotive excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Vehicle Data
+        const vehicles = {
+            1: {
+                title: "Porsche 911 Turbo S",
+                price: "$205,000",
+                description: "The pinnacle of sports car performance with breathtaking acceleration and precision handling. The 911 Turbo S combines everyday usability with track-ready performance, featuring a 3.8-liter twin-turbocharged engine producing 640 horsepower.",
+                specs: [
+                    { icon: "fa-tachometer-alt", value: "3.0s", label: "0-60 mph" },
+                    { icon: "fa-horse-head", value: "640 hp", label: "Horsepower" },
+                    { icon: "fa-cogs", value: "8-Speed PDK", label: "Transmission" },
+                    { icon: "fa-gas-pump", value: "21 mpg", label: "City/Hwy" },
+                    { icon: "fa-car", value: "Coupe", label: "Body Style" },
+                    { icon: "fa-palette", value: "Guards Red", label: "Exterior Color" }
+                ],
+                images: [
+                    "https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
+                    "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                ]
+            },
+            2: {
+                title: "Range Rover Autobiography",
+                price: "$145,000",
+                description: "Unmatched luxury and capability in the most refined SUV on the market. The Range Rover Autobiography offers a serene driving experience with its whisper-quiet cabin and sophisticated technology, while maintaining legendary off-road prowess.",
+                specs: [
+                    { icon: "fa-tachometer-alt", value: "4.5s", label: "0-60 mph" },
+                    { icon: "fa-horse-head", value: "518 hp", label: "Horsepower" },
+                    { icon: "fa-cogs", value: "8-Speed Auto", label: "Transmission" },
+                    { icon: "fa-gas-pump", value: "17 mpg", label: "City/Hwy" },
+                    { icon: "fa-car", value: "SUV", label: "Body Style" },
+                    { icon: "fa-palette", value: "Santorini Black", label: "Exterior Color" }
+                ],
+                images: [
+                    "https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2025&q=80",
+                    "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1603712610496-5362a2c93c90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1592198084033-aade902d1aae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                ]
+            },
+            3: {
+                title: "Audi R8 V10 Plus",
+                price: "$189,000",
+                description: "A supercar with everyday usability, featuring a screaming V10 engine and quattro all-wheel drive. The R8 delivers exhilarating performance without compromising on comfort or technology, making it the perfect supercar for daily driving.",
+                specs: [
+                    { icon: "fa-tachometer-alt", value: "3.2s", label: "0-60 mph" },
+                    { icon: "fa-horse-head", value: "602 hp", label: "Horsepower" },
+                    { icon: "fa-cogs", value: "7-Speed Auto", label: "Transmission" },
+                    { icon: "fa-gas-pump", value: "15 mpg", label: "City/Hwy" },
+                    { icon: "fa-car", value: "Coupe", label: "Body Style" },
+                    { icon: "fa-palette", value: "Daytona Gray", label: "Exterior Color" }
+                ],
+                images: [
+                    "https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+                    "https://images.unsplash.com/photo-1604108415419-6d4bd73a1c2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80",
+                    "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+                    "https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                ]
+            }
+        };
+
+        // DOM Elements
+        const themeToggle = document.getElementById('themeToggle');
+        const bgOptions = document.querySelectorAll('.bg-option');
+        const viewDetailsButtons = document.querySelectorAll('.view-details');
+        const modal = document.getElementById('vehicleModal');
+        const closeModal = document.querySelector('.close-modal');
+        const modalMainImage = document.getElementById('modalMainImage');
+        const modalThumbnails = document.getElementById('modalThumbnails');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalSpecs = document.getElementById('modalSpecs');
+        const modalDescription = document.getElementById('modalDescription');
+
+        // Theme Toggle
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                document.documentElement.style.setProperty('--light', '#121212');
+                document.documentElement.style.setProperty('--dark', '#f8f9fa');
+                document.documentElement.style.setProperty('--primary', '#f8f9fa');
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                document.documentElement.style.setProperty('--light', '#f8f9fa');
+                document.documentElement.style.setProperty('--dark', '#121212');
+                document.documentElement.style.setProperty('--primary', '#1a1a1a');
+            }
+        });
+
+        // Background Selector
+        bgOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove active class from all options
+                bgOptions.forEach(opt => opt.classList.remove('active'));
+                // Add active class to clicked option
+                option.classList.add('active');
+                
+                // Get the background type
+                const bgType = option.getAttribute('data-bg');
+                
+                // Apply background to vehicle images
+                const vehicleImages = document.querySelectorAll('.vehicle-image');
+                
+                vehicleImages.forEach(img => {
+                    // Reset any previous background classes
+                    img.classList.remove('urban-bg', 'nature-bg', 'seaside-bg', 'mountains-bg');
+                    
+                    // Add the selected background class if not default
+                    if (bgType !== 'default') {
+                        img.classList.add(`${bgType}-bg`);
+                    }
+                });
+            });
+        });
+
+        // View Details Button Click
+        viewDetailsButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const vehicleId = button.getAttribute('data-vehicle');
+                openVehicleModal(vehicleId);
+            });
+        });
+
+        // Open Vehicle Modal
+        function openVehicleModal(vehicleId) {
+            const vehicle = vehicles[vehicleId];
+            
+            if (!vehicle) return;
+            
+            // Set modal content
+            modalTitle.textContent = vehicle.title;
+            modalPrice.textContent = vehicle.price;
+            modalDescription.textContent = vehicle.description;
+            
+            // Set main image
+            modalMainImage.src = vehicle.images[0];
+            modalMainImage.alt = vehicle.title;
+            
+            // Clear and set thumbnails
+            modalThumbnails.innerHTML = '';
+            vehicle.images.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.innerHTML = `<img src="${image}" alt="${vehicle.title}">`;
+                
+                thumbnail.addEventListener('click', () => {
+                    // Update main image
+                    modalMainImage.src = image;
+                    
+                    // Update active thumbnail
+                    document.querySelectorAll('.thumbnail').forEach(thumb => {
+                        thumb.classList.remove('active');
+                    });
+                    thumbnail.classList.add('active');
+                });
+                
+                modalThumbnails.appendChild(thumbnail);
+            });
+            
+            // Clear and set specs
+            modalSpecs.innerHTML = '';
+            vehicle.specs.forEach(spec => {
+                const specItem = document.createElement('div');
+                specItem.className = 'spec-item';
+                specItem.innerHTML = `
+                    <div class="spec-icon">
+                        <i class="fas ${spec.icon}"></i>
+                    </div>
+                    <div>
+                        <div class="spec-value">${spec.value}</div>
+                        <div class="spec-label">${spec.label}</div>
+                    </div>
+                `;
+                modalSpecs.appendChild(specItem);
+            });
+            
+            // Show modal
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
